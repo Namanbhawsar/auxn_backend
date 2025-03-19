@@ -1,5 +1,4 @@
 version: '3.10'
-
 services:
   web:
     build: .
@@ -9,3 +8,23 @@ services:
       - .:/auxn
     ports:
       - "8000:8000"
+    depends_on:
+      - db
+    env_file:
+      - .env
+
+  db:
+    image: postgres:17.4
+    container_name: postgres_db
+    restart: always
+    ports:
+      - "5432:5432"
+    env_file:
+      - .env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data  # Persist database data
+
+volumes:
+  postgres_data:  # Define the named volume
+
+

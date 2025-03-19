@@ -1,0 +1,1 @@
+CASE_INSENSITIVE_DB_COLLATION = "case_insensitive"
