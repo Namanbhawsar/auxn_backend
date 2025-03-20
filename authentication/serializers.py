@@ -2,6 +2,8 @@ from rest_framework import serializers
 from authentication.models import User
 
 class SignupSerializer(serializers.ModelSerializer):
+    first_name = serializers.CharField(required=True)
+    last_name = serializers.CharField(required=True)
     password = serializers.CharField(write_only=True, min_length=8)
     confirm_password = serializers.CharField(write_only=True, min_length=8)
     phone = serializers.CharField(required=False, allow_blank=True)
