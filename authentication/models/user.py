@@ -25,10 +25,9 @@ class User(
     middle_name = models.TextField(max_length=50, blank=True, null=True,db_collation=CASE_INSENSITIVE_DB_COLLATION)
     last_name = models.TextField(max_length=50, blank=True, db_collation=CASE_INSENSITIVE_DB_COLLATION)
 
-    is_active = models.BooleanField(null=False, default=True,db_index=True)
-
     phone = models.CharField(max_length=20, blank=True)
     country_code = models.CharField(max_length=5,blank=True)
+    user_type = models.CharField(max_length=10, choices=USER_TYPES, default='buyer')
 
     USERNAME_FIELD = 'email'
     @property

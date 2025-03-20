@@ -27,6 +27,7 @@ class BaseModel(ModelPermissionsMixin, models.Model):
     id = models.UUIDField(default=uuid_model.uuid4, primary_key=True, editable=False)
     created_at = models.DateTimeField(auto_now_add=True, editable=False, null=True)
     updated_at = models.DateTimeField(auto_now=True, null=True)
+    is_active = models.BooleanField(null=False, default=True, db_index=True)
 
     class Meta:
         abstract = True
